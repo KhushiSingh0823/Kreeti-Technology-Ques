@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int r = sc.nextInt();
+
+    if (r > n) {
+      System.out.println("Invalid");
+      return;
+    }
+
+    if (r == 0 || r == n) {
+      System.out.println(1);
+      return;
+    }
+
+    int fact1 = 1;
+    int fact2 = 1;
+    int fact3 = 1;
+
+    for (int i = 1; i <= n; i++) {
+      fact1 *= i;
+    }
+
+    for (int i = 1; i <= r; i++) {
+      fact2 *= i;
+    }
+
+    for (int i = 1; i <= (n - r); i++) {
+      fact3 *= i;
+    }
+
+    int result = fact1 / (fact2 * fact3);
+
+    System.out.println(result);
+  }
+}
